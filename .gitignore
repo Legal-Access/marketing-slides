@@ -1,0 +1,22 @@
+# Exclude all directories except 23_保険代理店開拓
+/*
+!/.gitignore
+!/.git
+!/23_保険代理店開拓/
+
+# Within 23_保険代理店開拓, exclude unnecessary files
+/23_保険代理店開拓/#old/
+/23_保険代理店開拓/*.xlsx
+/23_保険代理店開拓/*.pptx
+/23_保険代理店開拓/*.docx
+/23_保険代理店開拓/*.pdf
+/23_保険代理店開拓/*.gslides
+/23_保険代理店開拓/*.gdoc
+/23_保険代理店開拓/*.gform
+/23_保険代理店開拓/tmp_*
+/23_保険代理店開拓/__pycache__/
+/23_保険代理店開拓/.venv/
+
+# Keep HTML and images
+!/23_保険代理店開拓/*.html
+!/23_保険代理店開拓/画像フォルダ/
