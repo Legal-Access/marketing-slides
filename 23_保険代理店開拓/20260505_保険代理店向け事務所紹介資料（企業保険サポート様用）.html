@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交通事故・弁護士費用特約サポート体制のご提案</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0d472d;
+            --text-color: #1a1a1a;
+            --bg-color: #ffffff;
+            --border-color: #e5e7eb;
+            --accent-light: rgba(13, 71, 45, 0.03);
+            --accent-lighter: rgba(13, 71, 45, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Noto Serif JP', 'Yu Mincho', 'Sawarabi Mincho', serif !important;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: flex-start;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            min-height: 500px;
+            max-height: 720px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            aspect-ratio: 16 / 9;
+        }
+
+        @media (max-width: 1400px) {
+            .slide-container {
+                max-width: 95vw;
+            }
+        }
+
+        .slide-content {
+            padding: 50px 60px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slide-title {
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin: 0 0 35px 0;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            width: 100%;
+        }
+
+        p, li, td, th {
+            font-size: 22px;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 30px;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+        }
+
+        .flex-row { display: flex; gap: 30px; height: 100%; align-items: stretch; }
+        .flex-col { display: flex; flex-direction: column; justify-content: center; flex: 1; }
+        
+        .image-box {
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(13, 71, 45, 0.05) 0%, rgba(13, 71, 45, 0.02) 100%);
+            border: 2px solid rgba(13, 71, 45, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .accent-box {
+            background: var(--accent-lighter);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+
+        .accent-box p {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 16px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        /* ─── Cover Slide ─── */
+        .cover-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .cover-subtitle {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        /* ─── Info Table ─── */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 22px;
+        }
+
+        .info-table td:first-child {
+            color: var(--primary-color);
+            font-weight: 700;
+            width: 120px;
+            white-space: nowrap;
+        }
+
+        /* ─── Timeline Table ─── */
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 21px;
+        }
+
+        .timeline-table td {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .timeline-table td:first-child {
+            width: 100px;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        .timeline-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ─── Agency Grid ─── */
+        .agency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+            align-content: start;
+        }
+
+        .agency-card {
+            border: 1px solid var(--border-color);
+            border-top: 5px solid var(--primary-color);
+            padding: 12px;
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .agency-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .agency-location {
+            font-size: 20px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* ─── Concern Boxes ─── */
+        .concern-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+            justify-content: center;
+        }
+
+        .concern-box {
+            background: var(--accent-light);
+            border-left: 5px solid var(--primary-color);
+            padding: 11px 20px;
+            border-radius: 2px;
+        }
+
+        .concern-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .concern-box p {
+            font-size: 19px;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ─── Solution Boxes ─── */
+        .solution-box {
+            background: var(--accent-light);
+            border-left: 5px solid var(--primary-color);
+            padding: 16px 20px;
+            border-radius: 2px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .solution-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            width: 40px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .solution-content p {
+            font-size: 21px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ─── Benefit Section ─── */
+        .benefit-item {
+            background: var(--accent-light);
+            border-left: 5px solid var(--primary-color);
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            border-radius: 2px;
+        }
+
+        .benefit-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .benefit-item p {
+            font-size: 21px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ─── CTA Section ─── */
+        .cta-box {
+            background: var(--accent-lighter);
+            border: 2px solid var(--primary-color);
+            padding: 24px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 14px;
+        }
+
+        .cta-text {
+            font-size: 22px;
+            line-height: 1.75;
+            color: var(--text-color);
+        }
+
+        /* ─── Print Styles ─── */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+                gap: 0;
+            }
+
+            .slide-container {
+                page-break-after: always;
+                break-after: page;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+                max-height: 100vh;
+                height: 100vh;
+                width: 100vw;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .slide-content {
+                padding: 40px 50px !important;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                overflow: hidden;
+            }
+
+            .slide-title {
+                font-size: 32px !important;
+                margin-bottom: 28px !important;
+            }
+
+            p, li, td, th {
+                font-size: 20px !important;
+            }
+
+            .slide-container:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========================================================
+     ページ 1：表紙
+     ======================================================== -->
+<div class="slide-container" style="justify-content: center; align-items: center; padding: 50px;">
+    <div style="border-left: 6px solid var(--primary-color); padding-left: 40px; width: 100%;">
+        <h1 class="cover-title">交通事故・弁護士費用特約サポート体制のご提案</h1>
+        <p class="cover-subtitle">〜 代理店様のお客様をしっかりサポートする新しい座組 〜</p>
+        <p style="font-size: 24px; color: var(--text-color); margin-bottom: 40px;">揉めていなくても、一度ご相談ください。本来請求できるはずの賠償金を逃さないために。</p>
+        <p style="font-size: 26px; color: var(--text-color); margin-bottom: 10px;">弁護士法人相生綜合法律事務所</p>
+        <p style="font-size: 26px; color: var(--text-color);">代表弁護士　福島 駿太</p>
+    </div>
+    <div class="page-number">1 / 8</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 2：事務所概要
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">事務所の概要</h2>
+        <div class="flex-row">
+            <div class="flex-col" style="flex: 1.2;">
+                <table class="info-table">
+                    <tr>
+                        <td>事務所名</td>
+                        <td>弁護士法人相生綜合法律事務所</td>
+                    </tr>
+                    <tr>
+                        <td>代表弁護士</td>
+                        <td>福島 駿太</td>
+                    </tr>
+                    <tr>
+                        <td>所在地</td>
+                        <td>〒104-0061 東京都中央区銀座8丁目17-5</td>
+                    </tr>
+                </table>
+                <div class="accent-box" style="margin-top: 18px;">
+                    <p>交通事故・弁護士費用特約案件は<strong>全体の9割</strong>以上を占めており、<br>特に交通事故対応に特化した体制を構築しています。</p>
+                </div>
+            </div>
+            <div style="width: 340px; flex-shrink: 0;">
+                <img src="画像フォルダ/img_intro01.jpg" alt="法律事務所" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+    <div class="page-number">2 / 8</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 3：代表プロフィール
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content" style="padding: 40px 60px;">
+        <h2 class="slide-title">代表プロフィール</h2>
+        <div class="flex-row" style="gap: 35px; align-items: flex-start;">
+            <div style="width: 280px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center;">
+                <img src="画像フォルダ/../20230901_IMG_1609_Shunta Fukushima_Full Portrait.jpg" alt="代表弁護士 福島 駿太" style="max-width: 260px; max-height: 380px; object-fit: contain; margin-bottom: 12px; border: 1px solid var(--border-color); border-radius: 4px;">
+                <p style="font-size: 20px; text-align: center; color: #666; margin: 0;">第一東京弁護士会所属<br>弁護士歴 11年以上</p>
+            </div>
+            <div class="flex-col" style="justify-content: flex-start; flex: 1;">
+                <div class="accent-box" style="margin-bottom: 10px;">
+                    <p>「法をもっと身近に」 ― 相談しやすい環境作りに注力</p>
+                </div>
+                <table class="timeline-table" style="font-size: 19px;">
+                    <tr><td>2013.3</td><td>中央大学法学部　卒業</td></tr>
+                    <tr><td>2014.12</td><td>弁護士登録 ／ 朝日中央綜合法律事務所　勤務</td></tr>
+                    <tr><td>2017.8</td><td>柴田・鈴木・中田法律事務所　勤務</td></tr>
+                    <tr><td>2018.10</td><td>アンダーソン・毛利・友常法律事務所　勤務</td></tr>
+                    <tr><td>2023.5</td><td>コーネル大学ロースクール修了（法学修士）</td></tr>
+                    <tr><td>2023.9</td><td>ウォーカーズ（香港）にて海外研修</td></tr>
+                    <tr><td>2024.9</td><td>アンダーソン・毛利・友常法律事務所　復帰</td></tr>
+                    <tr><td>2025.1</td><td>相生綜合法律事務所　開業</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">3 / 8</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 4：交通事故案件の取り組み（代理店情報）
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">交通事故案件の取り組み</h2>
+        <div class="agency-grid">
+            <div class="agency-card">
+                <div class="agency-name">山田保険事務所</div>
+                <div class="agency-location">小平市上水本町</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">日之出商会</div>
+                <div class="agency-location">中央区日本橋</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">保険情報サービス</div>
+                <div class="agency-location">足立区綾瀬</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">マキシム保険企画</div>
+                <div class="agency-location">足立区中央本町</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">ジェイオフィス</div>
+                <div class="agency-location">板橋区赤塚</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">シーエスワン安田</div>
+                <div class="agency-location">足立区南花畑</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">株式会社福沢</div>
+                <div class="agency-location">千代田区神田須田町</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">株式会社LifeNext</div>
+                <div class="agency-location">豊島区南池袋</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">ウインライフ浦安営業所</div>
+                <div class="agency-location">浦安市北棄</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">株式会社GRIP</div>
+                <div class="agency-location">豊島区南大塚</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">東京シグマックス</div>
+                <div class="agency-location">台東区上野</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">トモ保険サービス</div>
+                <div class="agency-location">八王子市大横町</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">株式会社エムアイ</div>
+                <div class="agency-location">新宿区西新宿</div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">4 / 8</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 5：代理店様の悩み（3点）
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">代理店様の悩み</h2>
+        <div class="concern-section">
+            <div class="concern-box">
+                <div class="concern-number">1. 顧問弁護士の限界</div>
+                <p>多くの代理店様には顧問弁護士がいますが、顧問弁護士は代理店の法律問題や契約書チェックを行う一方で、代理店のお客様を直接受任することはありません。そのため、お客様が交通事故に遭った際に相談できる弁護士がいないという悩みがあります。</p>
+            </div>
+            <div class="concern-box">
+                <div class="concern-number">2. 保険会社経由の課題</div>
+                <p>保険会社に弁護士を依頼すると、保険会社が弁護士会に照会して紹介されます。その結果、交通事故の専門性が低い弁護士が選任されたり、弁護士会を通すため時間がかかったり、相手方と同じ保険会社の場合は利益相反で弁護士を付けられないといった課題があります。</p>
+            </div>
+            <div class="concern-box">
+                <div class="concern-number">3. 知人弁護士の不確実性</div>
+                <p>知人の弁護士に頼もうとしても、弁護士にも専門分野があります。「交通事故は専門ではない」「対応できない」と言われ、何度か問い合わせた結果、誰も受けてくれず、弁護士選任に時間がかかるという課題があります。</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">5 / 8</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 6：弊事務所の対応
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">弊事務所の対応</h2>
+        <div class="concern-section">
+            <div class="solution-box">
+                <div class="solution-number">1</div>
+                <div class="solution-content">
+                    <p><strong>代理店のお客様を直接受任</strong><br>弊事務所は代理店様の顧問ではなく、代理店様のお客様自身を代理します。お客様が弁護士を付けたいとき、直接弊事務所をご紹介いただけます。</p>
+                </div>
+            </div>
+            <div class="solution-box">
+                <div class="solution-number">2</div>
+                <div class="solution-content">
+                    <p><strong>交通事故専門 + 高速対応</strong><br>弊事務所は交通事故を専門に取り扱い、案件の9割以上が交通事故です。弁護士会経由でないため、選任までのスピードが非常に速く、相手方がどの保険会社であっても対応できます。</p>
+                </div>
+            </div>
+            <div class="solution-box">
+                <div class="solution-number">3</div>
+                <div class="solution-content">
+                    <p><strong>原則全件受任</strong><br>弁護士費用特約に完全準拠しており、費用感が合わないから受けないということはありません。交通事故は専門ではないから受けられない、ということもありません。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">6 / 9</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 7：弁護士基準で慰謝料請求
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">弁護士基準だからこそ実現する賠償金</h2>
+        <div class="flex-row" style="gap: 40px;">
+            <div class="flex-col" style="flex: 1; border-right: 2px solid var(--border-color); padding-right: 30px;">
+                <h3 style="font-size: 28px; font-weight: 700; color: var(--text-color); margin-bottom: 20px; text-align: center;">特に慰謝料を<br>請求しなかった場合</h3>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                    <div style="font-size: 72px; font-weight: 700; color: #999; margin-bottom: 20px;">0 円</div>
+                    <div class="accent-box" style="margin: 0;">
+                        <p style="font-size: 20px; margin: 0;">保険会社が治療費を負担してくれるため、慰謝料を請求しないケースが多くあります。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-col" style="flex: 1; padding-left: 30px;">
+                <h3 style="font-size: 28px; font-weight: 700; color: var(--primary-color); margin-bottom: 20px; text-align: center;">弁護士基準で<br>慰謝料を請求した場合</h3>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                    <div style="font-size: 48px; font-weight: 700; color: var(--primary-color); margin-bottom: 10px;">53 万円</div>
+                    <p style="font-size: 20px; text-align: center; color: #555; margin-bottom: 25px;"><strong>例）むち打ち・3ヶ月通院</strong></p>
+                    <div class="accent-box" style="margin: 0; background: rgba(13, 71, 45, 0.08);">
+                        <p style="font-size: 20px; margin: 0;">自分で請求すると自賠責基準や任意保険基準に限定されますが、<strong>弁護士に依頼した場合だけ弁護士基準の53万円が請求できます。</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-number">7 / 9</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 8：デメリットなし
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">代理店様・お客様にご負担なし</h2>
+        <div class="flex-row" style="gap: 40px;">
+            <div class="flex-col" style="flex: 1;">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 26px; font-weight: 700; color: var(--primary-color); margin-bottom: 12px;">代理店様側</h3>
+                    <div class="benefit-item">
+                        <div class="benefit-title">初期費用</div>
+                        <p>かかりません</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">顧問料</div>
+                        <p>かかりません</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">紹介手数料</div>
+                        <p>1件あたりかかりません</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-col" style="flex: 1;">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 26px; font-weight: 700; color: var(--primary-color); margin-bottom: 12px;">お客様側</h3>
+                    <div class="benefit-item">
+                        <div class="benefit-title">弁護士費用</div>
+                        <p>弁護士費用特約でカバーされます</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">追加費用</div>
+                        <p>LAC基準に完全準拠・差額費用なし</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-title">完全無料</div>
+                        <p>安心して相談できます</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%; height: 200px; margin-top: 10px; border-radius: 8px; overflow: hidden;">
+            <img src="画像フォルダ/img_support01.jpg" alt="サポート" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </div>
+    <div class="page-number">8 / 9</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 9：推薦のお願い
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content">
+        <h2 class="slide-title">ぜひご推薦をお願いします</h2>
+        <div class="flex-row" style="gap: 35px; align-items: center;">
+            <div class="flex-col" style="flex: 1; justify-content: center;">
+                <p style="font-size: 24px; margin-bottom: 16px;"><strong>交通事故が発生したとき、揉めているかどうかにかかわらず、ぜひ弊事務所をご紹介ください。</strong></p>
+                <p style="font-size: 24px; margin-bottom: 16px;">「揉めていない」と思っても、本来請求できるはずの賠償金を逃すことがあります。</p>
+                <div class="cta-box">
+                    <div class="cta-title">相談のメリット</div>
+                    <p class="cta-text">何が請求できるかを明らかにして、お客様満足度を大幅に向上させることができます。</p>
+                </div>
+            </div>
+            <div style="width: 320px; flex-shrink: 0; border-radius: 8px; overflow: hidden;">
+                <img src="画像フォルダ/img_support02.jpg" alt="相談" style="width: 100%; height: 320px; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+    <div class="page-number">9 / 9</div>
+</div>
+
+</body>
+</html>
