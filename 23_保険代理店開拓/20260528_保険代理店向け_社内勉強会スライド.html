@@ -24,6 +24,18 @@
             font-family: 'Noto Serif JP', 'Yu Mincho', 'Sawarabi Mincho', serif !important;
         }
 
+        /* Font Awesome のアイコンクラスは Noto Serif JP の上書きを除外 */
+        .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands,
+        [class^="fa-"], [class*=" fa-"] {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        }
+        .fa-solid, .fas, [class^="fa-"], [class*=" fa-"] {
+            font-weight: 900;
+        }
+        .fa-regular, .far {
+            font-weight: 400;
+        }
+
         body {
             background-color: #e2e8f0;
             display: grid;
@@ -280,17 +292,45 @@
             line-height: 1.35;
         }
 
-        #p7 {
+        #p7, #p7-2 {
             padding-bottom: 72px;
         }
-        #p7 .slide-title {
+        #p7 .slide-title, #p7-2 .slide-title {
             margin-bottom: 22px;
         }
-        #p7 .agency-grid {
+        #p7 .agency-grid, #p7-2 .agency-grid {
             gap: 10px;
         }
-        #p7 .agency-card {
+        #p7 .agency-card, #p7-2 .agency-card {
             padding: 10px 11px;
+        }
+
+        /* P7-2：2列グリッド + 右に画像 */
+        #p7-2 .p7-2-layout {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            min-height: 0;
+            align-items: stretch;
+        }
+        #p7-2 .agency-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        #p7-2 .p7-2-image {
+            width: 360px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        #p7-2 .p7-2-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
         }
 
         /* ─── Concern Boxes ─── */
@@ -589,7 +629,7 @@
         <p style="font-size: 24px; color: var(--text-color); margin-top: 36px; margin-bottom: 6px;">弁護士法人相生綜合法律事務所</p>
         <p style="font-size: 24px; color: var(--text-color);">代表弁護士　福島 駿太</p>
     </div>
-    <div class="page-number">1 / 10</div>
+    <div class="page-number">1 / 11</div>
 </div>
 
 
@@ -597,7 +637,7 @@
      ページ 2：事務所概要
      ======================================================== -->
 <div class="slide-container">
-    <div class="slide-content">
+    <div class="slide-content" style="padding-bottom: 70px;">
         <div>
             <p class="section-label">Office</p>
             <h2 class="slide-title">事務所の概要</h2>
@@ -635,7 +675,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">2 / 10</div>
+    <div class="page-number">2 / 11</div>
 </div>
 
 
@@ -643,7 +683,7 @@
      ページ 3：代表プロフィール
      ======================================================== -->
 <div class="slide-container">
-    <div class="slide-content" style="padding: 40px 60px 70px 60px;">
+    <div class="slide-content" style="padding: 40px 60px 90px 60px;">
         <div>
             <p class="section-label">Lawyer</p>
             <h2 class="slide-title">代表プロフィール</h2>
@@ -670,7 +710,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">3 / 10</div>
+    <div class="page-number">3 / 11</div>
 </div>
 
 
@@ -702,7 +742,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">4 / 10</div>
+    <div class="page-number">4 / 11</div>
 </div>
 
 
@@ -741,7 +781,7 @@
             <span class="check-badge"><i class="fa-solid fa-circle-check"></i>事務負担ゼロ</span>
         </div>
     </div>
-    <div class="page-number">5 / 10</div>
+    <div class="page-number">5 / 11</div>
 </div>
 
 
@@ -752,7 +792,7 @@
     <div class="slide-content">
         <div>
             <p class="section-label">Benefit</p>
-            <h2 class="slide-title">保険代理店様にこんなメリットがありますよ</h2>
+            <h2 class="slide-title">保険代理店様にこんなメリットがあります</h2>
         </div>
         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
             <div class="benefit-item">
@@ -773,12 +813,12 @@
             <img src="画像フォルダ/img_support01.jpg" alt="代理店様サポート" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
         </div>
     </div>
-    <div class="page-number">6 / 10</div>
+    <div class="page-number">6 / 11</div>
 </div>
 
 
 <!-- ========================================================
-     ページ 7：提携の実績
+     ページ 7：提携の実績（前半12社）
      ======================================================== -->
 <div class="slide-container">
     <div class="slide-content" id="p7">
@@ -836,42 +876,63 @@
                 <div class="agency-name">トモ保険サービス</div>
                 <div class="agency-location">八王子市大横町</div>
             </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社エムアイ</div>
-                <div class="agency-location">新宿区西新宿</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">ほけんワークス</div>
-                <div class="agency-location">台東区台東</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">企業保険サポート</div>
-                <div class="agency-location">中央区日本橋本石町</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社フラッグ</div>
-                <div class="agency-location">豊島区西池袋</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">富士グローバル</div>
-                <div class="agency-location">新宿区四谷</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">有限会社ジェートップ</div>
-                <div class="agency-location">世田谷区桜上水</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社石黒保険事務所</div>
-                <div class="agency-location">中央区日本橋</div>
-            </div>
         </div>
     </div>
-    <div class="page-number">7 / 10</div>
+    <div class="page-number">7 / 11</div>
 </div>
 
 
 <!-- ========================================================
-     ページ 8：具体的な流れ
+     ページ 8：提携の実績（後半7社 + 画像）
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content" id="p7-2">
+        <div>
+            <p class="section-label">Partners</p>
+            <h2 class="slide-title">提携の実績</h2>
+        </div>
+        <div class="p7-2-layout">
+            <div class="agency-grid">
+                <div class="agency-card">
+                    <div class="agency-name">株式会社エムアイ</div>
+                    <div class="agency-location">新宿区西新宿</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">ほけんワークス</div>
+                    <div class="agency-location">台東区台東</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">企業保険サポート</div>
+                    <div class="agency-location">中央区日本橋本石町</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">株式会社フラッグ</div>
+                    <div class="agency-location">豊島区西池袋</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">富士グローバル</div>
+                    <div class="agency-location">新宿区四谷</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">有限会社ジェートップ</div>
+                    <div class="agency-location">世田谷区桜上水</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">株式会社石黒保険事務所</div>
+                    <div class="agency-location">中央区日本橋</div>
+                </div>
+            </div>
+            <div class="p7-2-image">
+                <img src="画像フォルダ/img_flow02.jpg" alt="交通事故対応フロー">
+            </div>
+        </div>
+    </div>
+    <div class="page-number">8 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 9：具体的な流れ
      ======================================================== -->
 <div class="slide-container">
     <div class="slide-content">
@@ -902,12 +963,12 @@
             </div>
         </div>
     </div>
-    <div class="page-number">8 / 10</div>
+    <div class="page-number">9 / 11</div>
 </div>
 
 
 <!-- ========================================================
-     ページ 9：お請けできない場合
+     ページ 10：お請けできない場合
      ======================================================== -->
 <div class="slide-container">
     <div class="slide-content">
@@ -915,24 +976,29 @@
             <p class="section-label">Notice</p>
             <h2 class="slide-title">こういう場合は、必ずしもお請けできるとは限りません</h2>
         </div>
-        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
-            <div class="concern-box">
-                <div class="concern-number">1. 弁護士費用特約に加入していない場合</div>
-                <p>最低着手金 <strong>10万円</strong> ／ 最低成功報酬 <strong>20万円</strong> がかかります。<br>ご契約者様の経済的負担が大きくなるため、弁特なしのケースは慎重に判断します。</p>
+        <div class="flex-row" style="gap: 35px; align-items: stretch;">
+            <div class="flex-col" style="flex: 1.2; justify-content: center; gap: 16px;">
+                <div class="concern-box">
+                    <div class="concern-number">1. 弁護士費用特約に加入していない</div>
+                    <p>最低着手金 <strong>10万円</strong> ／ 最低成功報酬 <strong>20万円</strong> がかかります。<br>ご契約者様の経済的負担が大きくなるため、弁特なしのケースは慎重に判断します。</p>
+                </div>
+                <div class="concern-box">
+                    <div class="concern-number">2. 相手方が特定できない・無保険</div>
+                    <p>当て逃げ・ひき逃げで<strong>相手方が特定できない</strong>場合、または相手方が<strong>任意保険に加入していない</strong>場合は、回収可能性が低く、お請けできないことがあります。</p>
+                </div>
+                <p style="font-size: 17px; color: #666; line-height: 1.7; margin: 0;">※ 上記に該当する場合でも、状況により対応可能なケースがあります。まずはお気軽にご相談ください。</p>
             </div>
-            <div class="concern-box">
-                <div class="concern-number">2. 相手方が特定できない・相手方が無保険</div>
-                <p>当て逃げ・ひき逃げで<strong>相手方が特定できない</strong>場合、または相手方が<strong>任意保険に加入していない</strong>場合は、回収可能性が低く、お請けできないことがあります。</p>
+            <div style="width: 320px; flex-shrink: 0; display: flex; align-items: stretch;">
+                <img src="画像フォルダ/img_support02.jpg" alt="ご相談" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
             </div>
-            <p style="font-size: 18px; color: #666; line-height: 1.7; margin-top: 6px;">※ 上記に該当する場合でも、状況により対応可能なケースがあります。まずはお気軽にご相談ください。</p>
         </div>
     </div>
-    <div class="page-number">9 / 10</div>
+    <div class="page-number">10 / 11</div>
 </div>
 
 
 <!-- ========================================================
-     ページ 10：お問い合わせ
+     ページ 11：お問い合わせ
      ======================================================== -->
 <div class="slide-container">
     <div class="slide-content">
@@ -961,7 +1027,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">10 / 10</div>
+    <div class="page-number">11 / 11</div>
 </div>
 
 </body>
