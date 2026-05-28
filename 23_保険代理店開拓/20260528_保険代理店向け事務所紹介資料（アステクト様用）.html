@@ -257,6 +257,53 @@
             line-height: 1.35;
         }
 
+        /* P4-2専用：2列グリッド + 右に画像 */
+        #p4-2 {
+            padding-bottom: 72px;
+        }
+        #p4-2 .slide-title {
+            margin-bottom: 26px;
+        }
+        #p4-2 .p4-2-layout {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            min-height: 0;
+            align-items: stretch;
+        }
+        #p4-2 .agency-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            flex: 1;
+        }
+        #p4-2 .agency-card {
+            padding: 10px 11px;
+        }
+        #p4-2 .agency-name {
+            font-size: 20px;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        #p4-2 .agency-location {
+            font-size: 18px;
+            line-height: 1.35;
+        }
+        #p4-2 .p4-2-image {
+            width: 360px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        #p4-2 .p4-2-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
         /* ─── Concern Boxes ─── */
         .concern-layout {
             display: flex;
@@ -450,27 +497,36 @@
             }
         }
 
-        /* P5専用：縦均等配置 */
+        /* P5専用：3列横並び */
         #p5 {
             padding-bottom: 70px;
         }
-        #p5 .concern-section {
+        #p5 .p5-row {
+            display: flex;
+            gap: 24px;
             flex: 1;
-            gap: 14px;
-            padding-right: 0;
+            min-height: 0;
+            align-items: stretch;
         }
         #p5 .concern-box {
             flex: 1;
-            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 22px;
         }
         #p5 .concern-number {
             font-size: 24px;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        #p5 .concern-box ul {
+            padding-left: 22px;
+            margin: 0;
         }
         #p5 .concern-box ul li {
             font-size: 21px;
-            line-height: 1.75;
-            margin-bottom: 4px;
+            line-height: 1.7;
+            margin-bottom: 6px;
         }
     </style>
 </head>
@@ -487,7 +543,7 @@
         <p style="font-size: 26px; color: var(--text-color); margin-bottom: 10px;">弁護士法人相生綜合法律事務所</p>
         <p style="font-size: 26px; color: var(--text-color);">代表弁護士　福島 駿太</p>
     </div>
-    <div class="page-number">1 / 9</div>
+    <div class="page-number">1 / 10</div>
 </div>
 
 
@@ -522,7 +578,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">2 / 9</div>
+    <div class="page-number">2 / 10</div>
 </div>
 
 
@@ -541,7 +597,7 @@
                 <div class="accent-box" style="margin-bottom: 10px;">
                     <p>「法をもっと身近に」 ― 相談しやすい環境作りに注力</p>
                 </div>
-                <table class="timeline-table" style="font-size: 19px;">
+                <table class="timeline-table" style="font-size: 17px;">
                     <tr><td>2013.3</td><td>中央大学法学部　卒業</td></tr>
                     <tr><td>2014.12</td><td>弁護士登録 ／ 朝日中央綜合法律事務所　勤務</td></tr>
                     <tr><td>2017.8</td><td>柴田・鈴木・中田法律事務所　勤務</td></tr>
@@ -554,12 +610,12 @@
             </div>
         </div>
     </div>
-    <div class="page-number">3 / 9</div>
+    <div class="page-number">3 / 10</div>
 </div>
 
 
 <!-- ========================================================
-     ページ 4：交通事故案件の取り組み（代理店情報）
+     ページ 4：交通事故案件の取り組み（代理店情報・前半12社）
      ======================================================== -->
 <div class="slide-container">
     <div class="slide-content" id="p4">
@@ -613,41 +669,59 @@
                 <div class="agency-name">トモ保険サービス</div>
                 <div class="agency-location">八王子市大横町</div>
             </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社エムアイ</div>
-                <div class="agency-location">新宿区西新宿</div>
+        </div>
+    </div>
+    <div class="page-number">4 / 10</div>
+</div>
+
+
+<!-- ========================================================
+     ページ 5：交通事故案件の取り組み（代理店情報・後半8社 + 画像）
+     ======================================================== -->
+<div class="slide-container">
+    <div class="slide-content" id="p4-2">
+        <h2 class="slide-title">交通事故案件の取り組み</h2>
+        <div class="p4-2-layout">
+            <div class="agency-grid">
+                <div class="agency-card">
+                    <div class="agency-name">株式会社エムアイ</div>
+                    <div class="agency-location">新宿区西新宿</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">ほけんワークス</div>
+                    <div class="agency-location">台東区台東</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">企業保険サポート</div>
+                    <div class="agency-location">中央区日本橋本石町</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">株式会社フラッグ</div>
+                    <div class="agency-location">豊島区西池袋</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">富士グローバル</div>
+                    <div class="agency-location">新宿区四谷</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">有限会社ジェートップ</div>
+                    <div class="agency-location">世田谷区桜上水</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">株式会社プロエージェント</div>
+                    <div class="agency-location">千代田区神田小川町</div>
+                </div>
+                <div class="agency-card">
+                    <div class="agency-name">株式会社石黒保険事務所</div>
+                    <div class="agency-location">中央区日本橋</div>
+                </div>
             </div>
-            <div class="agency-card">
-                <div class="agency-name">ほけんワークス</div>
-                <div class="agency-location">台東区台東</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">企業保険サポート</div>
-                <div class="agency-location">中央区日本橋本石町</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社フラッグ</div>
-                <div class="agency-location">豊島区西池袋</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">富士グローバル</div>
-                <div class="agency-location">新宿区四谷</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">有限会社ジェートップ</div>
-                <div class="agency-location">世田谷区桜上水</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社プロエージェント</div>
-                <div class="agency-location">千代田区神田小川町</div>
-            </div>
-            <div class="agency-card">
-                <div class="agency-name">株式会社石黒保険事務所</div>
-                <div class="agency-location">中央区日本橋</div>
+            <div class="p4-2-image">
+                <img src="画像フォルダ/img_flow02.jpg" alt="交通事故対応フロー">
             </div>
         </div>
     </div>
-    <div class="page-number">4 / 9</div>
+    <div class="page-number">5 / 10</div>
 </div>
 
 
@@ -657,36 +731,32 @@
 <div class="slide-container">
     <div class="slide-content" id="p5">
         <h2 class="slide-title">代理店様の悩み</h2>
-        <div class="flex-row" style="gap: 30px; align-items: stretch;">
-            <div class="concern-section" style="flex: 1.2; min-width: 0;">
-                <div class="concern-box">
-                    <div class="concern-number">1. 顧問弁護士の限界</div>
-                    <ul>
-                        <li>顧問弁護士は<strong>代理店の問題</strong>を扱う存在</li>
-                        <li><strong>お客様の交通事故</strong>は対象外・受任しない</li>                        
-                    </ul>
-                </div>
-                <div class="concern-box">
-                    <div class="concern-number">2. 保険会社経由の課題</div>
-                    <ul>
-                        <li>弁護士会照会経由 → <strong>選任まで時間がかかる</strong></li>
-                        <li>交通事故の専門性が低い弁護士が割り当てられる</li>
-                        <li>相手方と同保険会社の場合、<strong>利益相反で使えない</strong></li>
-                    </ul>
-                </div>
-                <div class="concern-box">
-                    <div class="concern-number">3. 知人弁護士への依頼</div>
-                    <ul>
-                        <li>「交通事故は専門外」と断られることが多い</li>
-                        <li>複数の弁護士に当たっても<strong>誰も受けてくれない</strong></li>
-                    </ul>
-                </div>
+        <div class="p5-row">
+            <div class="concern-box">
+                <div class="concern-number">1. 顧問弁護士の限界</div>
+                <ul>
+                    <li>顧問弁護士は<strong>代理店の問題</strong>を扱う存在</li>
+                    <li><strong>お客様の交通事故</strong>は対象外・受任しない</li>
+                </ul>
             </div>
-            <div style="width: 400px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-                <img src="画像フォルダ/img_flow02.jpg" alt="交通事故対応フロー" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block;">
+            <div class="concern-box">
+                <div class="concern-number">2. 保険会社経由の課題</div>
+                <ul>
+                    <li>弁護士会照会経由 → <strong>選任まで時間がかかる</strong></li>
+                    <li>交通事故の専門性が低い弁護士が割り当てられる</li>
+                    <li>相手方と同保険会社の場合、<strong>利益相反で使えない</strong></li>
+                </ul>
+            </div>
+            <div class="concern-box">
+                <div class="concern-number">3. 知人弁護士への依頼</div>
+                <ul>
+                    <li>「交通事故は専門外」と断られることが多い</li>
+                    <li>複数の弁護士に当たっても<strong>誰も受けてくれない</strong></li>
+                </ul>
             </div>
         </div>
     </div>
+    <div class="page-number">6 / 10</div>
 </div>
 
 
@@ -720,7 +790,7 @@
             <img src="画像フォルダ/img_support03.jpg" alt="サポートイメージ" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
         </div>
     </div>
-    <div class="page-number">6 / 9</div>
+    <div class="page-number">7 / 10</div>
 </div>
 
 
@@ -752,7 +822,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">7 / 9</div>
+    <div class="page-number">8 / 10</div>
 </div>
 
 
@@ -802,7 +872,7 @@
             <img src="画像フォルダ/img_support01.jpg" alt="サポート" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
     </div>
-    <div class="page-number">8 / 9</div>
+    <div class="page-number">9 / 10</div>
 </div>
 
 
@@ -826,7 +896,7 @@
             </div>
         </div>
     </div>
-    <div class="page-number">9 / 9</div>
+    <div class="page-number">10 / 10</div>
 </div>
 
 </body>
