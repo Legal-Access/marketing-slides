@@ -113,11 +113,17 @@
             width: 100%;
         }
 
-        p, li, td, th {
+        p, li {
             font-size: 22px;
             line-height: 1.8;
             letter-spacing: 0.02em;
             margin: 0;
+        }
+
+        /* 表セルは汎用 p/li ルールから切り離し、各テーブル（info-table / timeline-table 等）の専用ルールでサイズを決める */
+        td, th {
+            margin: 0;
+            letter-spacing: 0.02em;
         }
 
         ul {
@@ -219,9 +225,10 @@
         }
 
         .info-table td {
-            padding: 16px 0;
+            padding: 11px 0;
             border-bottom: 1px solid var(--border-color);
-            font-size: 22px;
+            font-size: 21px;
+            line-height: 1.5;
         }
 
         .info-table td:first-child {
@@ -240,8 +247,9 @@
         }
 
         .timeline-table td {
-            padding: 8px 0;
+            padding: 6px 0;
             border-bottom: 1px dashed var(--border-color);
+            line-height: 1.45;
         }
 
         .timeline-table td:first-child {
@@ -255,7 +263,9 @@
         }
 
         .p3-timeline td {
-            font-size: 20px !important;
+            font-size: 19px !important;
+            padding: 5px 0 !important;
+            line-height: 1.4 !important;
         }
 
         /* ─── Agency Grid ─── */
@@ -599,7 +609,7 @@
                 margin-bottom: 24px !important;
             }
 
-            p, li, td, th {
+            p, li {
                 font-size: 20px !important;
             }
 
