@@ -23,6 +23,12 @@
             font-family: 'Noto Serif JP', 'Yu Mincho', 'Sawarabi Mincho', serif !important;
         }
 
+        /* Font Awesome は上記の全称セレクタ上書きから除外（除外しないとアイコンが□×化する） */
+        .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
+        [class^="fa-"], [class*=" fa-"] {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        }
+
         body {
             background-color: #e2e8f0;
             display: grid;
@@ -948,6 +954,13 @@
                 <div class="cta-box">
                     <div class="cta-title">代理店様のメリット＝お客様満足度の向上</div>
                     <p class="cta-text">「弁護士を紹介してくれたおかげで、こんなにお金をもらえました」</p>
+                </div>
+                <div style="margin-top: 18px; border-left: 5px solid var(--primary-color); background: var(--accent-lighter); padding: 14px 22px;">
+                    <p style="font-size: 22px; font-weight: 700; color: var(--primary-color); margin: 0 0 8px 0;">ご連絡先</p>
+                    <p style="font-size: 21px; margin: 0; line-height: 1.8;">
+                        <i class="fa-solid fa-phone" style="color: var(--primary-color); margin-right: 10px;"></i>080-3589-5374<br>
+                        <i class="fa-solid fa-envelope" style="color: var(--primary-color); margin-right: 10px;"></i>support@aioi-law.jp
+                    </p>
                 </div>
             </div>
             <div style="width: 320px; flex-shrink: 0; border-radius: 8px; overflow: hidden;">
