@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交通事故・弁護士費用特約サポート体制のご提案</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green:  #0d472d;
+            --green2: rgba(13,71,45,.06);
+            --green3: rgba(13,71,45,.03);
+            --text:   #1a1a1a;
+            --bg:     #ffffff;
+            --border: #e0e4e8;
+            --red:    #b71c1c;
+            --orange: #e65100;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', 'HG明朝E', serif !important;
+        }
+
+        body {
+            background: #d6dce6;
+            display: grid;
+            gap: 28px;
+            grid-template-columns: 1fr;
+            margin: 0;
+            padding: 28px;
+            place-items: center;
+        }
+
+        /* ─── スライド本体（16:9） ─── */
+        .slide {
+            background: var(--bg);
+            border-radius: 3px;
+            box-shadow: 0 10px 32px rgba(0,0,0,.12);
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 1360px) {
+            .slide { max-width: 95vw; }
+        }
+
+        /* ─── スライド本文エリア ─── */
+        .body {
+            padding: 42px 62px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* ─── 共通：見出し ─── */
+        .h-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--green);
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 8px;
+            margin: 0 0 22px;
+            letter-spacing: .05em;
+            flex-shrink: 0;
+        }
+
+        /* ─── 共通：テキスト ─── */
+        p, li, td, th, .agency-quote { font-size: 24px; line-height: 1.72; letter-spacing: .02em; margin: 0 0 8px; }
+        ul { margin: 0; padding-left: 26px; }
+        li { margin-bottom: 8px; }
+
+        /* ─── 共通：レイアウト ─── */
+        .row { display: flex; gap: 26px; flex: 1; min-height: 0; }
+        .col { display: flex; flex-direction: column; justify-content: center; flex: 1; min-width: 0; }
+
+        /* ─── 共通：ボックス類 ─── */
+        .lbox {
+            border-left: 5px solid var(--green);
+            background: var(--green2);
+            padding: 14px 20px;
+        }
+        .img-box { flex-shrink: 0; overflow: hidden; border-radius: 5px; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .img-box.contain img { object-fit: contain; background: #f5f5f5; }
+
+        /* ─── テーブル：事務所情報 ─── */
+        .info-table td { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 24px; }
+        .info-table td:first-child { color: var(--green); font-weight: 700; width: 130px; white-space: nowrap; }
+
+        /* ─── テーブル：経歴 ─── */
+        .timeline td { padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 22px; line-height: 1.5; }
+        .timeline td:first-child { width: 115px; vertical-align: top; color: #444; white-space: nowrap; }
+        .timeline tr:last-child td { border-bottom: none; }
+
+        /* ─── テーブル：比較 ─── */
+        .comp-wrap { flex: 1; min-height: 0; overflow: hidden; }
+        .comp-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        .comp-table th {
+            background: #4a5568;
+            color: #fff;
+            padding: 10px 8px;
+            font-size: 23px;
+            text-align: center;
+            font-weight: 700;
+            border-right: 1px solid rgba(255,255,255,.2);
+            line-height: 1.45;
+        }
+        .comp-table th:first-child { background: #2d4a3c; text-align: left; padding-left: 14px; width: 165px; }
+        .comp-table th:last-child  { background: var(--green); }
+        .comp-table td {
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            font-size: 23px;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .comp-table td:first-child { text-align: left; font-weight: 700; padding-left: 14px; background: #f8f9fa; }
+        .comp-table td:last-child   { background: rgba(13,71,45,.04); }
+        .comp-table tr:nth-child(even) td { background: #fafbfc; }
+        .comp-table tr:nth-child(even) td:last-child { background: rgba(13,71,45,.06); }
+        .ok   { color: var(--green); font-weight: 700; font-size: 24px; }
+        .ng   { color: var(--red);   font-weight: 700; font-size: 24px; }
+        .half { color: var(--orange);font-weight: 700; font-size: 24px; }
+
+        /* ─── 代理店カードグリッド ─── */
+        .agency-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 13px;
+            flex: 1;
+            min-height: 0;
+        }
+        .agency-card {
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--green);
+            padding: 13px 15px 14px;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+        }
+        .agency-name  { font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 7px; line-height: 1.4; }
+        .agency-quote { font-size: 22px; line-height: 1.62; color: #3a3a3a; flex: 1; }
+
+        /* ─── フロー（ステップ） ─── */
+        .wf-step { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 5px; }
+        .wf-num  {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--green); color: #fff;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 20px; font-weight: 700; flex-shrink: 0;
+        }
+        .wf-line { width: 2px; height: 14px; background: #ccc; margin-left: 17px; }
+        .wf-head { font-size: 24px; color: var(--green); font-weight: 700; margin: 0 0 5px; }
+        .wf-body { font-size: 24px; margin: 0; }
+
+        /* ─── メリット行 ─── */
+        .benefit {
+            display: flex;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+            background: var(--green3);
+            margin-bottom: 13px;
+        }
+        .bn {
+            width: 50px; flex-shrink: 0;
+            background: var(--green); color: #fff;
+            font-size: 28px; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .bc { padding: 13px 20px; flex: 1; }
+        .bc-head { font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+
+        /* ─── ページ番号 ─── */
+        .pg { position: absolute; bottom: 16px; right: 24px; font-size: 14px; color: #aaa; }
+
+        /* ─── 印刷設定 ─── */
+        @media print {
+            @page { size: A4 landscape; margin: 0; }
+            body { background: #fff; padding: 0; gap: 0; }
+            .slide {
+                page-break-after: always; break-after: page;
+                page-break-inside: avoid; break-inside: avoid;
+                box-shadow: none; border-radius: 0;
+                max-width: 100%; width: 100vw;
+                height: 100vh; aspect-ratio: unset;
+                margin: 0;
+            }
+            .slide:last-child { page-break-after: auto; break-after: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========================================================
+     スライド 1：表紙
+     ======================================================== -->
+<div class="slide" style="justify-content: center; align-items: center;">
+    <div style="border-left: 6px solid var(--green); padding: 0 0 0 48px; width: calc(100% - 120px);">
+        <p style="font-size: 26px; font-weight: 400; letter-spacing: .14em; color: #777; margin-bottom: 18px;">ご提案書</p>
+        <h1 style="font-size: 50px; color: var(--green); line-height: 1.42; font-weight: 700; margin: 0 0 38px; letter-spacing: .04em;">
+            交通事故・弁護士費用特約<br>サポート体制のご提案
+        </h1>
+        <p style="font-size: 28px; margin-bottom: 7px; color: var(--text);">弁護士法人相生綜合法律事務所</p>
+        <p style="font-size: 28px; color: #333;">代表弁護士 　福島 駿太</p>
+    </div>
+    <div class="pg">1 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 2：事務所説明
+     ======================================================== -->
+<div class="slide">
+    <div class="body">
+        <h2 class="h-title">1. 事務所説明</h2>
+        <div class="row" style="align-items: center;">
+            <div class="col" style="flex: 1.35;">
+                <table class="info-table" style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td>事務所名</td>
+                        <td>弁護士法人相生綜合法律事務所</td>
+                    </tr>
+                    <tr>
+                        <td>代表弁護士</td>
+                        <td>福島 駿太</td>
+                    </tr>
+                    <tr>
+                        <td>所在地</td>
+                        <td>〒104-0061 　東京都中央区銀座8丁目17-5</td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top; border-bottom: none;">取扱業務</td>
+                        <td style="border-bottom: none;">
+                            交通事故 ／ 相続・遺言 ／ 不動産 ／ 労働問題<br>
+                            離婚・男女問題 ／ ネットトラブル ／ その他一般民事業務
+                        </td>
+                    </tr>
+                </table>
+                <div class="lbox" style="margin-top: 24px;">
+                    <p style="font-size: 24px; margin: 0; font-weight: 700; color: var(--green);">
+                        交通事故・弁護士費用特約に特化した専門チームを設置
+                    </p>
+                </div>
+            </div>
+            <div class="img-box contain" style="width: 400px; height: 310px;">
+                <img src="20260224_画像_法律事務所.png" alt="法律事務所">
+            </div>
+        </div>
+    </div>
+    <div class="pg">2 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 3：代表紹介
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 36px;">
+        <h2 class="h-title" style="margin-bottom: 18px;">2. 代表紹介</h2>
+        <div class="row">
+            <!-- 写真 -->
+            <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; width: 250px;">
+                <img src="20260224_画像_Shunta Fukushima_Full Portrait.jpg"
+                     alt="代表弁護士 福島 駿太"
+                     style="max-width: 240px; max-height: 368px; object-fit: contain; margin-bottom: 10px; border: 1px solid var(--border);">
+                <p style="font-size: 20px; text-align: center; margin: 0; color: #666; line-height: 1.55;">
+                    第一東京弁護士会所属<br>弁護士歴 10 年以上
+                </p>
+            </div>
+            <!-- 経歴 -->
+            <div class="col" style="justify-content: flex-start; padding-left: 16px;">
+                <div style="margin-bottom: 16px; padding: 12px 18px; background: rgba(13,71,45,.06); border-left: 4px solid var(--green);">
+                    <p style="font-size: 24px; margin: 0; font-weight: 700; color: var(--green); line-height: 1.5;">
+                        "法をもっと身近に" ― 相談しやすい環境作りに注力
+                    </p>
+                </div>
+                <table class="timeline" style="width: 100%; border-collapse: collapse;">
+                    <tr><td>2013.3</td><td>中央大学法学部　卒業</td></tr>
+                    <tr><td>2014.12</td><td>弁護士登録 ／ 朝日中央綜合法律事務所　勤務</td></tr>
+                    <tr><td>2017.8</td><td>柴田・鈴木・中田法律事務所　勤務</td></tr>
+                    <tr><td>2018.10</td><td>アンダーソン・毛利・友常法律事務所　勤務</td></tr>
+                    <tr><td>2023.5</td><td>コーネル大学ロースクール修了（法学修士）</td></tr>
+                    <tr><td>2023.9</td><td>ウォーカーズ（香港）にて海外研修</td></tr>
+                    <tr><td>2024.9</td><td>アンダーソン・毛利・友常法律事務所　復帰</td></tr>
+                    <tr><td>2025.1</td><td>相生綜合法律事務所　開業</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="pg">3 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 4：当事務所の現状の取り組み
+     ======================================================== -->
+<div class="slide">
+    <div class="body">
+        <h2 class="h-title">3. 当事務所の現状の取り組み</h2>
+        <div class="row" style="align-items: stretch;">
+            <!-- 左：テキスト -->
+            <div class="col" style="flex: 1.35; justify-content: flex-start;">
+                <div class="lbox" style="margin-bottom: 22px;">
+                    <p style="font-size: 24px; margin: 0; font-weight: 700; color: var(--green);">
+                        東京都内の保険代理店様を中心に提携し、<br>契約者様の法律問題に対応
+                    </p>
+                </div>
+                <h3 style="font-size: 26px; color: var(--text); margin: 0 0 14px; display: flex; align-items: center; font-weight: 700;">
+                    <span style="width: 5px; height: 26px; background: var(--green); display: inline-block; margin-right: 12px; flex-shrink: 0;"></span>
+                    具体的な相談例
+                </h3>
+                <ul>
+                    <li>弁護士費用特約を利用したい。代理店に「弁護士を紹介してほしい」とご連絡が入る。</li>
+                    <li>相手方保険会社からの慰謝料提示に納得できない。弁護士に相談・交渉を依頼したい。</li>
+                    <li>過失割合の説明に納得できない。弁護士に対応を依頼したい。</li>
+                </ul>
+            </div>
+            <!-- 右：実績 + 画像 -->
+            <div class="col" style="flex: 0.75; align-items: center; justify-content: center; gap: 18px;">
+                <div style="text-align: center; border: 2px solid var(--green); border-radius: 4px; padding: 18px 28px; background: var(--green2); width: 100%;">
+                    <p style="font-size: 22px; color: #666; margin-bottom: 4px; font-weight: 500;">現在の提携代理店数</p>
+                    <p style="font-size: 76px; font-weight: 700; color: var(--green); line-height: 1; margin: 0;">
+                        11<span style="font-size: 32px;">社</span>
+                    </p>
+                    <p style="font-size: 20px; color: #888; margin: 5px 0 0;">（東京都内・近郊）</p>
+                </div>
+                <div class="img-box" style="width: 100%; height: 176px;">
+                    <img src="20260224_画像_法律相談.png" alt="法律相談">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pg">4 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 5：なぜこのような相談が多いのか
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 34px;">
+        <h2 class="h-title" style="margin-bottom: 18px;">4. なぜこのような相談が多いのか</h2>
+        <p style="font-size: 24px; margin-bottom: 16px; color: #444;">
+            保険代理店様が「弁護士を紹介したい」と思っても、既存の選択肢には課題があります。
+        </p>
+        <div class="comp-wrap">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>評価項目</th>
+                        <th>既存の<br>顧問弁護士</th>
+                        <th>保険会社の<br>弁護士</th>
+                        <th>知り合いの<br>弁護士</th>
+                        <th>相生綜合</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>専門分野</td>
+                        <td>企業法務専門</td>
+                        <td>保険会社顧問</td>
+                        <td>様々</td>
+                        <td class="ok">個人法務・<br>交通事故専門</td>
+                    </tr>
+                    <tr>
+                        <td>弁特案件の受任</td>
+                        <td class="ng">受任拒否</td>
+                        <td class="half">保険会社優先</td>
+                        <td class="half">都度 不安定</td>
+                        <td class="ok">原則 受任</td>
+                    </tr>
+                    <tr>
+                        <td>独立性・利害関係</td>
+                        <td class="ng">なし</td>
+                        <td class="ng">保険会社に<br>従属</td>
+                        <td class="ok">あり</td>
+                        <td class="ok">あり</td>
+                    </tr>
+                    <tr>
+                        <td>安定した紹介体制</td>
+                        <td class="ng">対応不可</td>
+                        <td class="half">保険会社<br>経由のみ</td>
+                        <td class="ng">断られる<br>場合あり</td>
+                        <td class="ok">常時 受付</td>
+                    </tr>
+                    <tr>
+                        <td>対応スピード</td>
+                        <td class="ng">対応不可</td>
+                        <td class="ng">着手まで<br>数ヶ月も</td>
+                        <td class="half">ケース<br>バイケース</td>
+                        <td class="ok">迅速対応</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="pg">5 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 6：提携代理店の声（前半）
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 34px;">
+        <h2 class="h-title" style="margin-bottom: 16px;">5. 提携している保険代理店様の声　（前半）</h2>
+        <div class="agency-grid">
+            <div class="agency-card">
+                <div class="agency-name">山田保険事務所様（小平市）</div>
+                <div class="agency-quote">「顧問弁護士に弁特案件を断られ続けていたが、相生綜合さんは積極的に受任してくれるので助かる」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">日之出商会様（日本橋）</div>
+                <div class="agency-quote">「顧問弁護士が損保ジャパンの顧問も兼務しているため利益相反に。相生綜合さんは独立しているので安心して依頼できる」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">保険情報サービス様（綾瀬）</div>
+                <div class="agency-quote">「顧問弁護士は企業法務専門で個人の相談には非対応。相生綜合さんは個人法務専門のため助かる」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">マキシム保険企画様（足立区）</div>
+                <div class="agency-quote">「固定の提携先がなく案件ごとに受任可否が不安定だったが、相生綜合さんとの提携で原則受任してもらえるようになった」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">ジェイオフィス様（板橋区）</div>
+                <div class="agency-quote">「保険会社経由の弁護士は着手まで数ヶ月かかることもあった。交通事故に強く原則受任可能な相生綜合さんを選んだ」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">シーエスワン安田様（足立区）</div>
+                <div class="agency-quote">「対応の遅さや費用面での断りが続いていたが、相生綜合さんとの提携で迅速かつ継続的な受け皿が確保できた」</div>
+            </div>
+        </div>
+    </div>
+    <div class="pg">6 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 7：提携代理店の声（後半）
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 34px;">
+        <h2 class="h-title" style="margin-bottom: 16px;">5. 提携している保険代理店様の声　（後半）</h2>
+        <div class="agency-grid">
+            <div class="agency-card">
+                <div class="agency-name">株式会社福沢様（千代田区）</div>
+                <div class="agency-quote">「弁護士紹介の相談が月 2〜3 件と多い。相生綜合さんにさっそく 1 件紹介し、スムーズに対応いただいた」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">ウインライフ浦安営業所様（浦安市）</div>
+                <div class="agency-quote">「弁護士の受け皿を複数確保したかった。交通事故領域の強みを評価して相生綜合さんと提携した」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">株式会社グリップ様（豊島区）</div>
+                <div class="agency-quote">「以前の弁護士は専門性・レスポンスに問題があり解任。安心して任せられる相生綜合さんに依頼することにした」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">東京シグマックス様（台東区）</div>
+                <div class="agency-quote">「相手があいおいニッセイ同和の場合、顧問弁護士は利益相反で受任不可に。相生綜合さんは中立に対応してくれる」</div>
+            </div>
+            <div class="agency-card">
+                <div class="agency-name">トモ保険サービス様（八王子市）</div>
+                <div class="agency-quote">「既存の提携弁護士に弱気との顧客クレームが増加。相生綜合さんの積極的な対応姿勢を評価して提携に至った」</div>
+            </div>
+            <!-- まとめセル -->
+            <div class="agency-card" style="background: rgba(13,71,45,.05); border: 2px solid var(--green); align-items: center; justify-content: center; text-align: center;">
+                <p style="font-size: 56px; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 6px;">
+                    11<span style="font-size: 26px;">社</span>
+                </p>
+                <p style="font-size: 22px; color: var(--green); font-weight: 700; margin: 0; line-height: 1.5;">
+                    提携代理店<br>（一部抜粋）
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="pg">7 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 8：提携後の流れ
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 36px;">
+        <h2 class="h-title" style="margin-bottom: 20px;">6. 提携後の流れ</h2>
+        <div class="row" style="align-items: center;">
+            <!-- フロー -->
+            <div class="col" style="justify-content: flex-start; flex: 1.25;">
+                <div class="wf-step">
+                    <div class="wf-num">1</div>
+                    <div>
+                        <p class="wf-head">契約者様 → 保険代理店様</p>
+                        <p class="wf-body">交通事故等の法律トラブル発生を報告。「弁護士を紹介してほしい」とご連絡が入る。</p>
+                    </div>
+                </div>
+                <div class="wf-line"></div>
+
+                <div class="wf-step">
+                    <div class="wf-num">2</div>
+                    <div>
+                        <p class="wf-head">保険代理店様 → 相生綜合</p>
+                        <p class="wf-body">電話またはメールにて、事案の概要をご連絡・ご紹介。</p>
+                    </div>
+                </div>
+                <div class="wf-line"></div>
+
+                <div class="wf-step">
+                    <div class="wf-num">3</div>
+                    <div>
+                        <p class="wf-head">相生綜合 → 契約者様（代理店様にも随時ご共有）</p>
+                        <p class="wf-body">法律相談に対応。内容によっては受任し、相手方保険会社との交渉・手続を代行。</p>
+                    </div>
+                </div>
+                <div class="wf-line"></div>
+
+                <div class="wf-step">
+                    <div class="wf-num" style="background: #7a6545;">4</div>
+                    <div>
+                        <p class="wf-head" style="color: #7a6545;">解 決</p>
+                        <p class="wf-body" style="font-weight: 700;">契約者様の問題が解決。保険代理店様は手間なく、顧客満足度の向上を実現できます。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 画像 -->
+            <div class="img-box" style="width: 390px; height: 340px;">
+                <img src="20260224_画像_提携.png" alt="提携">
+            </div>
+        </div>
+    </div>
+    <div class="pg">8 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 9：提携による保険代理店様のメリット
+     ======================================================== -->
+<div class="slide">
+    <div class="body">
+        <h2 class="h-title">7. 提携による保険代理店様のメリット</h2>
+        <div style="display: flex; flex-direction: column; flex: 1; justify-content: center; gap: 12px;">
+            <div class="benefit">
+                <div class="bn">1</div>
+                <div class="bc">
+                    <p class="bc-head">「紹介できる弁護士がいない」という課題を即解消</p>
+                    <p style="font-size: 24px; margin: 0;">弁護士費用特約付き保険を販売しているにもかかわらず、紹介先がないというジレンマを根本から解消します。</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="bn">2</div>
+                <div class="bc">
+                    <p class="bc-head">契約者様からの法律相談を「丸ごと」引き受け</p>
+                    <p style="font-size: 24px; margin: 0;">交通事故に限らず、様々な法律相談を相生綜合がまとめて対応。代理店様の業務負担を大幅に削減します。</p>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="bn">3</div>
+                <div class="bc">
+                    <p class="bc-head">「個人法務・一般民事」に特化した専門的サポート</p>
+                    <p style="font-size: 24px; margin: 0;">企業法務専門の顧問弁護士では対応できない、個人の法律問題を専門的かつ迅速にサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pg">9 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 10：費用負担ゼロ
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 36px;">
+        <h2 class="h-title">8. 費用負担ゼロ</h2>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 18px;">
+            <!-- メインメッセージ -->
+            <div style="text-align: center; padding: 20px 0;">
+                <p style="font-size: 28px; font-weight: 700; color: var(--green); margin: 0; padding: 18px 38px; border: 3px solid var(--green); display: inline-block; border-radius: 4px; line-height: 1.7;">
+                    保険代理店様・保険契約者様ともに<br>
+                    <span style="color: var(--red); font-size: 42px; display: inline-block; margin-top: 8px;">費用負担は原則「0円」</span>
+                </p>
+            </div>
+            <!-- 詳細ボックス（flex:1 で残余スペースを埋める） -->
+            <div style="display: flex; gap: 22px; flex: 1; min-height: 0;">
+                <div style="flex: 1; background: var(--green2); border: 1px solid var(--border); border-radius: 4px; padding: 32px 28px 28px; position: relative; display: flex; flex-direction: column; justify-content: flex-start;">
+                    <div style="position: absolute; top: -15px; left: 22px; background: var(--green); color: #fff; padding: 5px 18px; font-size: 22px; font-weight: 700; border-radius: 2px;">
+                        保険代理店様
+                    </div>
+                    <p style="font-size: 24px; margin: 8px 0 0; line-height: 1.8;">
+                        ご紹介・ご連絡いただくだけ。費用は一切かかりません。<br>提携に際して、特別な契約や手続きも不要です。
+                    </p>
+                </div>
+                <div style="flex: 1; background: var(--green2); border: 1px solid var(--border); border-radius: 4px; padding: 32px 28px 28px; position: relative; display: flex; flex-direction: column; justify-content: flex-start;">
+                    <div style="position: absolute; top: -15px; left: 22px; background: var(--green); color: #fff; padding: 5px 18px; font-size: 22px; font-weight: 700; border-radius: 2px;">
+                        保険契約者様
+                    </div>
+                    <p style="font-size: 24px; margin: 8px 0 0; line-height: 1.8;">
+                        法律相談料は 1 時間まで無料。受任時の弁護士費用は
+                        <span style="color: var(--green); font-weight: 700;">弁護士費用特約</span>
+                        を利用することで、保険会社から直接支払われます。ご自身が未加入の場合も、家族（配偶者・同居親族等）の特約を使えるケースが多くあります。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pg">10 / 11</div>
+</div>
+
+
+<!-- ========================================================
+     スライド 11：まとめ
+     ======================================================== -->
+<div class="slide">
+    <div class="body" style="padding: 38px 62px 36px;">
+        <h2 class="h-title" style="margin-bottom: 18px;">9. まとめ</h2>
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+
+            <!-- メインメッセージ -->
+            <div style="background: rgba(13,71,45,.04); border: 2px solid var(--green); border-radius: 4px; padding: 22px 32px; text-align: center;">
+                <p style="font-size: 28px; font-weight: 700; color: var(--green); margin: 0; line-height: 1.65;">
+                    貴社の保険契約者様にて法律トラブルが発生しましたら、<br>
+                    ぜひ弊事務所にご紹介ください。
+                </p>
+            </div>
+
+            <!-- 3つのポイント -->
+            <div style="display: flex; gap: 18px; flex: 1; padding: 16px 0;">
+                <div style="flex: 1; border: 1px solid var(--border); border-top: 5px solid var(--green); border-radius: 2px; padding: 16px 20px;">
+                    <p style="font-size: 24px; color: var(--green); font-weight: 700; margin-bottom: 8px;">手続きはシンプル</p>
+                    <p style="font-size: 24px; margin: 0; color: #3a3a3a;">電話またはメールでご一報いただくだけ。複雑な手続きは一切不要です。</p>
+                </div>
+                <div style="flex: 1; border: 1px solid var(--border); border-top: 5px solid var(--green); border-radius: 2px; padding: 16px 20px;">
+                    <p style="font-size: 24px; color: var(--green); font-weight: 700; margin-bottom: 8px;">費用負担なし</p>
+                    <p style="font-size: 24px; margin: 0; color: #3a3a3a;">保険代理店様にも保険契約者様にも費用は原則かかりません。</p>
+                </div>
+                <div style="flex: 1; border: 1px solid var(--border); border-top: 5px solid var(--green); border-radius: 2px; padding: 16px 20px;">
+                    <p style="font-size: 24px; color: var(--green); font-weight: 700; margin-bottom: 8px;">交通事故のプロ</p>
+                    <p style="font-size: 24px; margin: 0; color: #3a3a3a;">交通事故・弁護士費用特約に特化した専門チームが迅速に対応します。</p>
+                </div>
+            </div>
+
+            <!-- 連絡先 -->
+            <div style="text-align: center; padding: 10px 0 2px;">
+                <p style="font-size: 24px; margin: 0; line-height: 1.9; color: #444;">
+                    ご不明点・ご質問は、お気軽にお問い合わせください。<br>
+                    <span style="font-size: 30px; color: var(--green); font-weight: 700; letter-spacing: .05em;">03-6899-3958</span>
+                    <span style="font-size: 24px; color: #999; margin: 0 14px;">／</span>
+                    <span style="font-size: 27px; color: var(--green); font-weight: 700;">support@aioi-law.jp</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <div class="pg">11 / 11</div>
+</div>
+
+</body>
+</html>
