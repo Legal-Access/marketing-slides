@@ -21,7 +21,7 @@ from pptx.oxml.ns import qn
 
 BASE = r"g:\共有ドライブ\マーケティング部\23_保険代理店開拓"
 IMG  = os.path.join(BASE, "_html_img")
-OUT  = os.path.join(BASE, "20260416_特別レポート（16-9）.pptx")
+OUT  = os.path.join(BASE, "20260416_特別レポート_パワポ版.pptx")
 
 # 16:9 スライド寸法
 SW = Inches(13.333)
