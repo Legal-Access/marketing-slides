@@ -713,6 +713,10 @@ body{
   body{background:white;padding:0}
   .a4-wrapper{margin:0;box-shadow:none;page-break-after:always;break-after:page}
   @page{size:A4 landscape;margin:0}
+  /* PDF印刷時、印刷用の狭いビューポート幅により max-width:900px の
+     モバイル用ルール(.cover-right{display:none})が誤って発火し、
+     表紙右側の写真が消える。印刷時は必ず表示するよう上書きする。 */
+  .cover-right{display:block !important}
 }
 
 </style>
